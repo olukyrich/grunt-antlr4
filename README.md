@@ -41,6 +41,8 @@ A hash of antlr command line options.
 
 Please refer to https://theantlrguy.atlassian.net/wiki/display/ANTLR4/ANTLR+Tool+Command+Line+Options.
 
+'-' symbol at the start of the option name must be ommited
+
 Top level options are those which are not flags and grammar-level options. 
 Format: -{optionName} {optionValue}
 

@@ -25,11 +25,11 @@ In your project's Gruntfile, add a section named `antlr4` to the data object pas
 ```js
 grunt.initConfig({
   antlr4: {
-    options: {
-      // Task-specific options go here.
-    },
     your_target: {
-      // Target-specific file lists and/or options go here.
+      grammar: 'Path to your .g4 file',
+      options: {
+          // Target-specific options go here.
+      },
     },
   },
 });
@@ -37,47 +37,42 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+A hash of antlr command line options.
 
-A string value that is used to do something with whatever.
+Please refer to https://theantlrguy.atlassian.net/wiki/display/ANTLR4/ANTLR+Tool+Command+Line+Options.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+Top level options are those which are not flags and grammar-level options. Format: -{optionName} {optionValue}
 
-A string value that is used to do something else with whatever else.
+Flags are options which don't have a value. Format: -{flagName}
+
+Grammar-level options are JVM arguments formatted as -D{optionName}={optionValue}
+
+#### options.flags
+Type: `Array`
+
+An array of flag names
+
+#### options.grammar
+Type: `Object`
+
+A hash of grammar-level options
 
 ### Usage Examples
-
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
 ```js
 grunt.initConfig({
-  antlr4: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  antlr4: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+    antlr4: {
+        test: {
+            grammar: 'JSON.g4', //path to your grammar definition
+            options: {
+                o: 'dist', //output directory
+                grammarLevel: {
+                    language: 'JavaScript' //generated code language
+                },
+                flags: [
+                    'visitor' //enable visitor generation
+                ]
+            }
+        }
+    }
 });
 ```

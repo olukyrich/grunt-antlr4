@@ -39,7 +39,7 @@ grunt.initConfig({
 
 A hash of antlr command line options.
 
-Please refer to https://theantlrguy.atlassian.net/wiki/display/ANTLR4/ANTLR+Tool+Command+Line+Options.
+Please refer to https://github.com/antlr/antlr4/blob/master/doc/tool-options.md
 
 '-' symbol at the start of the option name must be ommited
 

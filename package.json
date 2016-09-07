@@ -1,7 +1,7 @@
 {
   "name": "grunt-antlr4",
   "description": "Grunt task for antlr4",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "homepage": "https://github.com/olukyrich/grunt-antlr4",
   "author": {
     "name": "Oleg Lukyrych",
